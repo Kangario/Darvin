@@ -8,7 +8,14 @@ ADCharacterController::ADCharacterController()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	    // Создание компонента камеры и прикрепление его к корневому компоненту
+    CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
+    CameraComponent->SetupAttachment(RootComponent);
 
+    // Настройка положения и ориентации камеры
+    CameraComponent->SetRelativeLocation(FVector(-300.0f, 0, 160.0f)); // Примерное положение
+    CameraComponent->SetRelativeRotation(FRotator(0, 0, 0));
+ 	CameraComponent->bUsePawnControlRotation = true; // Камера следует за поворотом головы персонажа
 }
 
 // Called when the game starts or when spawned
@@ -31,6 +38,8 @@ void ADCharacterController::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
     PlayerInputComponent->BindAxis("MoveForward", this, &ADCharacterController::MoveForward);
     PlayerInputComponent->BindAxis("MoveRight", this, &ADCharacterController::MoveRight);
+    PlayerInputComponent->BindAxis("Turn", this, &ADCharacterController::AddControllerYawInput);
+    PlayerInputComponent->BindAxis("LookUp", this, &ADCharacterController::AddControllerPitchInput);
 }
 
 void ADCharacterController::MoveForward(float Value)

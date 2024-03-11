@@ -3,3 +3,8 @@
 
 #include "DarvinGameModeBase.h"
 
+ADarvinGameModeBase::ADarvinGameModeBase()
+{
+    // Установка класса персонажа по умолчанию
+    DefaultPawnClass = ADCharacterController::StaticClass();
+}
