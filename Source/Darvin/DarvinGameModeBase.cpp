@@ -5,6 +5,6 @@
 
 ADarvinGameModeBase::ADarvinGameModeBase()
 {
-    // Установка класса персонажа по умолчанию
-    DefaultPawnClass = ADCharacterController::StaticClass();
+// Установка класса персонажа по умолчанию с использованием пути к Blueprint
+  
 }
