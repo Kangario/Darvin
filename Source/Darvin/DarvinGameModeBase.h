@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "Character/DCharacterController.h"
 #include "DarvinGameModeBase.generated.h"
 
 /**
