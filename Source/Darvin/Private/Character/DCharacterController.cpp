@@ -24,14 +24,12 @@ CameraComponent->bUsePawnControlRotation = true;
 void ADCharacterController::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
 void ADCharacterController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
